@@ -101,7 +101,7 @@ git config --global user.name <username>
 # Set email
 git config --global user.email <email>
 
-# Check this has worked
+# Check this has worked.
 git config --global user.name
 git config --global user.email
 ```
@@ -426,6 +426,79 @@ Green text highlights additions and red text highlights deletions.
 
 ![](images/screenshots/rstudio-commit.png){fig-align="center" width=55%}
 
+## Collaborative coding – basic setup 1
+
+A simple collaborative coding setup can be achieved by the project owner adding collaborators in Github:
+
+1.   On the repository page click “Settings” (near the top). 
+2.   Choose “Collaborators” in the pane on the left. 
+3.   Click the green “Add people” button and then add collaborators by entering their Github usernames or email addresses. 
+
+
+
+## Collaborative coding – basic setup 2
+-   The collaborators should now be able to clone, pull, edit, commit and push etc. 
+
+-   If multiple people are working on a file simultaneously, then their changes will be automatically merged when they push their edits. If there are conflicts in their code, then this will be flagged and they will be asked to review and fix the conflicts. 
+
+-   A more complicated (but better!) process, including the use of branches and pull requests, is discussed in Step 3 of [this guide](https://medium.com/@jonathanmines/the-ultimate-github-collaboration-guide-df816e98fb67). 
+
+
+# Setting up a project in RStudio
+
+## Initial setup
+
+Once a repository has been created in Github, you can clone it and start working on it in RStudio.
+
+## Initial setup - Git Bash
+
+In Git Bash:
+
+1.   Navigate to the folder you want to place the local version of your repository in by running the command: 
+
+`cd /c/Users/<folder location>`
+(e.g., `cd /c/Users/u449906/Documents/R/repos/`) 
+
+NB: This isn’t the OneDrive Documents folder, but the one on your actual C drive; your code will run faster if it’s stored on the C drive. 
+
+## Initial project setup - Git Bash
+2. Clone the repository from github to your repos folder using the command: 
+
+`git clone git@github.com:[github location].git`  
+(e.g.: `git clone git@github.com:DavidFrenchSG/TestProject.git`) 
+
+Note that the folder can’t have existed already – if it does, then rename it, then copy the files into the folder that is created by the Git Bash steps. 
+
+## Initial project setup - Git Bash
+3. If you already have scripts or other files you want to add to the project, copy and paste them into the folder that was just created (e.g., C:/Users/u449906/Documents/R/repos/TestProject/). 
+
+
+## Initial project setup - RStudio
+
+In RStudio:
+
+1. File > New Project > Existing Directory 
+2. Click Browse, navigate to the folder that was created above (in this example C:/Users/u449906/Documents/R/repos/TestProject) 
+3. Click “Create Project” 
+
+
+## Initial project setup - RStudio
+4. You should see a list of files in the bottom right quadrant, including the README and gitignore files you created in Github, any files you copied and pasted into the folder manually, and an .Rproj file. 
+5. You should also see a “Git” tab in the top right quadrant (next to Environment, History and Connections). Click this, then check all the boxes under “Staged”, then click “Commit”. 
+6. Enter a commit message (e.g., “Initial commit”), and then click “Commit”.
+
+## Initial project setup - RStudio  
+7. Click “Push”, then “Close”. A successful push will result in a message something like: 
+`>>> C:/Program Files/Git/bin/git.exe push origin HEAD:refs/heads/master` 
+`To github.com:DavidFrenchSG/TestProject.git `
+      `20b6e7f..f500f76  HEAD -> master `
+
+
+## Initial project setup - RStudio
+You should now be able to Pull, edit and Push code between the remote repository (i.e., Github) and your local repository (i.e, your C Drive). 
+
+Remember to modify your gitignore file to ensure that data files aren’t stored on github. Normally this can be done by adding “\*.csv”, “\*.xls”, “\*.sas7bdat” to the file (new line for each filetype, and without the quotation marks). You should also update the readme file periodically. 
+
 
 # GitHub and<br> Data Science Scotland {.h1-blue}
 
@@ -491,6 +564,10 @@ Green text highlights additions and red text highlights deletions.
 -   Choose whether to make your repository public or private
 
 -   Add a README file
+
+-   Choose a license (see [GDS advice](https://gds-way.cloudapps.digital/manuals/licensing.html))
+
+-   Add a gitignore file (see above for guidance and example)
 
 -   Click the green 'Create repository' button
 
@@ -562,6 +639,19 @@ You only need to create an SSH key once per device.
 
 -   [Add the copied SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account) by going to Settings, then SSH and GPG keys
 
+## Check that SSH key has been added properly
+
+-   Test that the SSH connection has been properly set up by running this command in Git Bash: 
+
+    ```{r engine = "bash"}
+    # Test if ssh key works (say yes if asked whether you want to continue)
+    ssh -T git@github.com
+    ```
+        
+-   If you get this message, it has worked: 
+    ```{r engine="bash"}
+    Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
+    ```
 
 ## Clone repository from GitHub {.h2-no-padding .smaller}
 
