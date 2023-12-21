@@ -17,6 +17,7 @@ execute:
   eval: false
   fig-format: "svg"
 lang: en
+number-sections: true
 ---
 
 
@@ -426,45 +427,44 @@ Green text highlights additions and red text highlights deletions.
 
 ![](images/screenshots/rstudio-commit.png){fig-align="center" width=55%}
 
-## Collaborative coding – basic setup 1
 
-A simple collaborative coding setup can be achieved by the project owner adding collaborators in Github:
-
-1.   On the repository page click “Settings” (near the top). 
-2.   Choose “Collaborators” in the pane on the left. 
-3.   Click the green “Add people” button and then add collaborators by entering their Github usernames or email addresses. 
-
-
-
-## Collaborative coding – basic setup 2
--   The collaborators should now be able to clone, pull, edit, commit and push etc. 
-
--   If multiple people are working on a file simultaneously, then their changes will be automatically merged when they push their edits. If there are conflicts in their code, then this will be flagged and they will be asked to review and fix the conflicts. 
-
--   A more complicated (but better!) process, including the use of branches and pull requests, is discussed in Step 3 of [this guide](https://medium.com/@jonathanmines/the-ultimate-github-collaboration-guide-df816e98fb67). 
 
 
 # Setting up a project in RStudio
 
-## Initial setup
+## Initial setup - Github 
 
-Once a repository has been created in Github, you can clone it and start working on it in RStudio.
+In Github (skip these 4 steps if copying an existing project from Github):
+
+1.	Click Repositories > New.
+2.	Enter a name and choose public/private (you almost certainly want private to start with; you can still grant collaborators access by inviting them to the project).
+
+
+## Initial setup - Github 
+
+3.	Check the Add README box, choose the R .gitignore template and GPL-3.0 license.
+4.	Click Create Repository. You should be taken to the repository’s home page, with a list of files contained in it (at the moment only the readme and gitignore files).
+
+
+
 
 ## Initial setup - Git Bash
+
+Once a repository has been created in Github, you can clone it and start working on it in RStudio.
 
 In Git Bash:
 
 1.   Navigate to the folder you want to place the local version of your repository in by running the command: 
 
 `cd /c/Users/<folder location>`
-(e.g., `cd /c/Users/u449906/Documents/R/repos/`) 
 
-NB: This isn’t the OneDrive Documents folder, but the one on your actual C drive; your code will run faster if it’s stored on the C drive. 
+(e.g., `cd /c/Users/u449906/Documents/R/repos/`) 
 
 ## Initial project setup - Git Bash
 2. Clone the repository from github to your repos folder using the command: 
 
-`git clone git@github.com:[github location].git`  
+`git clone git@github.com:[github location].git`
+
 (e.g.: `git clone git@github.com:DavidFrenchSG/TestProject.git`) 
 
 Note that the folder can’t have existed already – if it does, then rename it, then copy the files into the folder that is created by the Git Bash steps. 
@@ -484,12 +484,14 @@ In RStudio:
 
 ## Initial project setup - RStudio
 4. You should see a list of files in the bottom right quadrant, including the README and gitignore files you created in Github, any files you copied and pasted into the folder manually, and an .Rproj file. 
-5. You should also see a “Git” tab in the top right quadrant (next to Environment, History and Connections). Click this, then check all the boxes under “Staged”, then click “Commit”. 
-6. Enter a commit message (e.g., “Initial commit”), and then click “Commit”.
+6. You should also see a “Git” tab in the top right quadrant (next to Environment, History and Connections). Click this, then check all the boxes under “Staged”, then click “Commit”.
 
-## Initial project setup - RStudio  
-7. Click “Push”, then “Close”. A successful push will result in a message something like: 
-`>>> C:/Program Files/Git/bin/git.exe push origin HEAD:refs/heads/master` 
+## Initial project setup - RStudio   
+7. Enter a commit message (e.g., “Initial commit”), and then click “Commit”.
+8. Click “Push”, then “Close”. A successful push will result in a message something like this: 
+
+`>>> C:/Program Files/Git/bin/git.exe push origin HEAD:refs/heads/master`
+
 `To github.com:DavidFrenchSG/TestProject.git `
       `20b6e7f..f500f76  HEAD -> master `
 
@@ -497,8 +499,24 @@ In RStudio:
 ## Initial project setup - RStudio
 You should now be able to Pull, edit and Push code between the remote repository (i.e., Github) and your local repository (i.e, your C Drive). 
 
-Remember to modify your gitignore file to ensure that data files aren’t stored on github. Normally this can be done by adding “\*.csv”, “\*.xls”, “\*.sas7bdat” to the file (new line for each filetype, and without the quotation marks). You should also update the readme file periodically. 
+Remember to modify your gitignore file to ensure that data files aren’t stored on github. [This one](https://github.com/DataScienceScotland/road_casualty_map/blob/main/.gitignore) is a good example to follow. 
 
+## Collaborative coding – basic setup 1
+
+A simple collaborative coding setup can be achieved by the project owner adding collaborators in Github:
+
+1.   On the repository page click “Settings” (near the top). 
+2.   Choose “Collaborators” in the pane on the left. 
+3.   Click the green “Add people” button and then add collaborators by entering their Github usernames or email addresses. 
+
+
+
+## Collaborative coding – basic setup 2
+-   Collaborators can clone, pull, edit, commit and push etc. 
+
+-   If people are working on a file simultaneously, their changes will be automatically merged when they push. If there are conflicts in their code, they will be asked to review and fix the conflicts. 
+
+-   A more complicated (but better!) process, including the use of branches and pull requests, is discussed in Step 3 of [this guide](https://medium.com/@jonathanmines/the-ultimate-github-collaboration-guide-df816e98fb67). 
 
 # GitHub and<br> Data Science Scotland {.h1-blue}
 
