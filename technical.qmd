@@ -693,12 +693,14 @@ You only need to create an SSH key once per device.
 
 ## Contact {.smaller}
 
-Alice Byers
+This training material has been developed by:
 
-Reproducible Analytical Pipeline (RAP) Developer
+* Alice Byers, RAP Developer, Scottish Government
 
-Data Innovation Team, Scottish Government
+  [Email](mailto:alice.byers@gov.scot) | [GitHub](https://github.com/alicebyers5)
 
-<alice.byers@gov.scot>
+* David French, Statistician, National Records of Scotland
 
-[GitHub profile](https://github.com/alicebyers5)
+  [Email]() | [GitHub]()
+  
+The code used to produce these slides is available on [GitHub](https://github.com/ScotGovAnalysis/version-control-guidance).
